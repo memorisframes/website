@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drive Video Player</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2rem;
+        text-align: center;
+      }
+      iframe {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Drive Video Player</h2>
+    <div id="video-container">
+      <p>Loading video...</p>
+    </div>
+
+    <script>
+      function getDriveFileId() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get("id");
+      }
+
+      const fileId = getDriveFileId();
+
+      if (fileId) {
+        const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+        document.getElementById("video-container").innerHTML = `
+        <iframe src="${embedUrl}" width="640" height="480" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+      `;
+      } else {
+        document.getElementById("video-container").innerHTML = `
+        <p>No video ID provided in URL.</p>
+        <p>Try using: <code>?id=YOUR_FILE_ID</code></p>
+      `;
+      }
+    </script>
+  </body>
+</html>
