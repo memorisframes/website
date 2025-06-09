@@ -4,19 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drive Video Player</title>
-    <style>
-      body {
-        font-family: sans-serif;
-        padding: 2rem;
-        text-align: center;
-      }
-      iframe {
-        margin-top: 20px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2>Drive Video Player</h2>
+    <h2>Memorial Frames</h2>
     <div id="video-container">
       <p>Loading video...</p>
     </div>
@@ -32,7 +23,8 @@
       if (fileId) {
         const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
         document.getElementById("video-container").innerHTML = `
-        <iframe src="${embedUrl}" width="640" height="480" allow="autoplay" frameborder="0" allowfullscreen></iframe>
+        <iframe src="${embedUrl}" width="640" height="480"   allow="autoplay; fullscreen; picture-in-picture"  frameborder="0" allowfullscreen></iframe>
+        <button>Download</button>
       `;
       } else {
         document.getElementById("video-container").innerHTML = `
