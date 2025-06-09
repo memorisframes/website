@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h2>Memorial Frames</h2>
-    <div id="video-container">
+    <h2>Memoris Frames</h2>
+    <div id="video-container" class="video-container">
       <p>Loading video...</p>
     </div>
 
@@ -24,7 +24,7 @@
         const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
         document.getElementById("video-container").innerHTML = `
         <iframe src="${embedUrl}" width="640" height="480"   allow="autoplay; fullscreen; picture-in-picture"  frameborder="0" allowfullscreen></iframe>
-        <button>Download</button>
+        
       `;
       } else {
         document.getElementById("video-container").innerHTML = `
